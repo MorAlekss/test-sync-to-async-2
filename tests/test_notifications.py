@@ -2,16 +2,16 @@ import pytest
 from src.notifications.notifications import send_email, send_sms, send_push
 
 
-def test_send_email():
-    result = send_email("test@example.com", "Hello", "Body")
+async def test_send_email():
+    result = await send_email("test@example.com", "Hello", "Body")
     assert result["sent"] == True
 
 
-def test_send_sms():
-    result = send_sms("+1234567890", "Hello")
+async def test_send_sms():
+    result = await send_sms("+123****7890", "Hello")
     assert result["sent"] == True
 
 
-def test_send_push():
-    result = send_push("device123", "Title", "Body")
+async def test_send_push():
+    result = await send_push("device123", "Title", "Body")
     assert result["sent"] == True
